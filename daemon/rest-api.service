@@ -1,0 +1,9 @@
+[Unit]
+Description=a simple rest api engine
+
+[Service]
+ExecStart=socketmaster -listen tcp://:10000 -command=./main
+ExecReload=/bin/kill -HUP $MAINPID
+
+[Install]
+WantedBy=multi-user.target
